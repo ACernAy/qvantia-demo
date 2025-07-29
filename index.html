@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quantia Video</title>
+  <title>Video Demo</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       background-color: black;
       display: flex;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
     }
-    iframe {
-      width: 90%;
-      height: 90%;
-      border: none;
+    video {
+      max-width: 100%;
+      max-height: 100%;
     }
   </style>
 </head>
 <body>
-  <iframe 
-    src="https://drive.google.com/file/d/1magij_-xCzjHDTlhrCUFzu3dQV94o4xj/preview?autoplay=1" 
-    allow="autoplay" 
-    allowfullscreen>
-  </iframe>
+  <video autoplay muted playsinline>
+    <source src="video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
 </body>
 </html>
