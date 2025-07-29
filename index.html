@@ -2,28 +2,34 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Video con sonido</title>
+  <title>Video autoplay con sonido (solo tras interacción)</title>
   <style>
     body, html {
-      height: 100%;
-      margin: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin: 0; height: 100%; background: black;
+      display: flex; justify-content: center; align-items: center;
     }
     video {
-      max-width: 100%;
-      max-height: 100vh;
+      max-width: 100%; max-height: 100vh;
     }
   </style>
 </head>
 <body>
 
-  <video controls autoplay>
+  <video id="video" controls autoplay>
     <source src="video.mp4" type="video/mp4" />
     Tu navegador no soporta video.
   </video>
+
+  <script>
+    // Intentamos iniciar el video con sonido
+    const video = document.getElementById('video');
+    video.play().catch(() => {
+      // Si falla (normalmente por políticas), espera interacción para reproducir con sonido
+      document.body.addEventListener('click', () => {
+        video.play();
+      }, { once: true });
+    });
+  </script>
 
 </body>
 </html>
